@@ -33,7 +33,7 @@ public class TestSpel {
 		if (ctx == null) {
 			ctx = new ClassPathXmlApplicationContext("spring/spring-spel.xml");
 		} else {
-			System.out.println("ctx is not null");
+			//System.out.println("ctx is not null");
 			return;
 		}
 	}
@@ -72,7 +72,7 @@ public class TestSpel {
 	}
 	
 	@Test
-	public void testSpelCreateInstanceDirectly() {
+	public void testSpelCreateInstanceDirectlyAndOperator() {
 		SpelBean3 spelBean3 = (SpelBean3) ctx.getBean("spelBean3");
 		printAllParametersValue(spelBean3);
 	}
