@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="spelBean1" class="com.tieto.titan.spring.spel.SpelBean">
+		<property name="count" value="#{5}" />
+		<property name="message" value="The value is #{5}" />
+		<property name="frequency" value="#{89.1}" />
+		<property name="capacity" value="#{1e4}" />
+		<property name="name" value="#{'Chunk'}" />
+		<property name="name2" value='#{"Chunk"}' />
+		<property name="enabled" value="#{true}" />
+	</bean>
+
+	<bean id="spelBean2" class="com.tieto.titan.spring.spel.SpelBean2">
+		<property name="instrument" value="#{saxophone}" />
+	</bean>
+	
+	<bean id="spelBean3" class="com.tieto.titan.spring.spel.SpelBean3">
+		<property name="multiplier" value="#{T(java.lang.Math).PI}" />
+		<property name="randomNumber" value="#{T(java.lang.Math).random()}" />
+	</bean>
+	<bean id="saxophone" class="com.tieto.titan.spring.ioc.impl.Saxophone"
+		p:number="saxphone #10086" />
+
+	<bean id="kenny" class="com.tieto.titan.spring.ioc.impl.Instrumentalist">
+		<property name="song" value="My heart will go on"></property>
+		<property name="instrument" ref="saxophone"></property>
+	</bean>
+
+	<bean id="carl" class="com.tieto.titan.spring.ioc.impl.Instrumentalist">
+		<property name="song" value="#{kenny.song}"></property>
+		<property name="instrument" value="#{kenny.instrument}"></property>
+	</bean>
+	<bean id="selector" class="com.tieto.titan.spring.ioc.impl.SongSelector">
+		<property name="songs">
+			<list>
+				<value>My Heart will go on</value>
+				<value>Just one last dance</value>
+				<value>Little house</value>
+				<value>So beautiful in white</value>
+				<value>Tears</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="conan" class="com.tieto.titan.spring.ioc.impl.Instrumentalist">
+		<!-- use '?.' instead of "." can avoid NullPointerException -->
+		<property name="song" value="#{selector.selectSong()?.toUpperCase()}"></property>
+		<property name="instrument" value="#{kenny.instrument}"></property>
+	</bean>
+
+</beans>
