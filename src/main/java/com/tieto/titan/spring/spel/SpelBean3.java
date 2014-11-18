@@ -8,6 +8,10 @@ public class SpelBean3 {
 	private double remainder;
 	private double area;
 	private String fullName;
+	private boolean equal;
+	private boolean hasCapacity;
+	private boolean largeCircle;
+	
 	
 	public double getMultiplier() {
 		return multiplier;
@@ -85,6 +89,42 @@ public class SpelBean3 {
 
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
+	}
+
+
+
+	public boolean isEqual() {
+		return equal;
+	}
+
+
+
+	public void setEqual(boolean equal) {
+		this.equal = equal;
+	}
+
+
+
+	public boolean isHasCapacity() {
+		return hasCapacity;
+	}
+
+
+
+	public void setHasCapacity(boolean hasCapacity) {
+		this.hasCapacity = hasCapacity;
+	}
+
+
+
+	public boolean isLargeCircle() {
+		return largeCircle;
+	}
+
+
+
+	public void setLargeCircle(boolean largeCircle) {
+		this.largeCircle = largeCircle;
 	}
 
 	

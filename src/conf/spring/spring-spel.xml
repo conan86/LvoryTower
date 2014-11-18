@@ -26,6 +26,20 @@
 		<property name="remainder" value="#{counter.total % counter.count}" />
 		<property name="area" value="#{T(java.lang.Math).PI*counter.radious^2}"></property>
 		<property name="fullName" value="#{counter.firstName + ' ' + counter.lastName}"/>
+		<property name="equal" value="#{counter.total == 100}"/>
+		<!-- 
+		     ==    eq 
+		     <     lt
+		     <=    le
+		     >     gt
+		     >=    ge
+		-->
+		<property name="hasCapacity" value="#{counter.total le 100000}"/>
+		
+		<!--
+			and, or , not , !, 
+		 -->
+		<property name="largeCircle" value="#{shape.kind eq 'circle' and shape.perimeter gt 1e4}" />
 	</bean>
 	
 	<bean id="counter" class="com.tieto.titan.spring.spel.Counter">
@@ -64,5 +78,8 @@
 		<property name="song" value="#{selector.selectSong()?.toUpperCase()}"></property>
 		<property name="instrument" value="#{kenny.instrument}"></property>
 	</bean>
-
+	<bean id="shape" class="com.tieto.titan.spring.spel.Shape">
+		<property name="kind" value="#{'circle'}" />
+		<property name="perimeter" value="#{1e5}"/>
+	</bean>
 </beans>

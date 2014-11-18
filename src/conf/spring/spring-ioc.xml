@@ -12,7 +12,7 @@
 	</bean>
 
 	<bean id="poeticDuke" class="com.tieto.titan.spring.ioc.impl.PoeticJuggler">
-		<constructor-arg value="10"></constructor-arg>
+		<constructor-arg> <value>10</value></constructor-arg>
 		<constructor-arg ref="sonect29"></constructor-arg>
 	</bean>
 

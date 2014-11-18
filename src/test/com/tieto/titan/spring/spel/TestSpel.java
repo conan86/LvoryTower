@@ -69,6 +69,7 @@ public class TestSpel {
 		System.out.println("------------------------------------------");
 		Performer conan = (Performer) ctx.getBean("conan");
 		conan.perform();
+
 	}
 	
 	@Test
