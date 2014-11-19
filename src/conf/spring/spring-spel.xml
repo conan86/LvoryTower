@@ -2,8 +2,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:util="http://www.springframework.org/schema/util" 
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/beans
+   		http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean id="spelBean1" class="com.tieto.titan.spring.spel.SpelBean">
 		<property name="count" value="#{5}" />
 		<property name="message" value="The value is #{5}" />
@@ -44,6 +48,10 @@
 			and, or , not , !, 
 		 -->
 		<property name="largeCircle" value="#{shape.kind eq 'circle' and shape.perimeter gt 1e4}" />
+		<property name="emailAddress"><value>joe@aol.com</value></property>
+	</bean>
+	<bean id="spelBean4" class="com.tieto.titan.spring.spel.SpelBean4">
+		<property name="validEmail" value="#{spelBean3.emailAddress matches '^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$'}"></property>
 	</bean>
 	
 	<bean id="shape" class="com.tieto.titan.spring.spel.Shape">
@@ -62,6 +70,9 @@
 	
 	<bean id="saxophone" class="com.tieto.titan.spring.ioc.impl.Saxophone"
 		p:number="saxphone #10086" />
+	<bean id="piano" class="com.tieto.titan.spring.ioc.impl.Piano">
+		<property name="number" value="10010"></property>
+	</bean>
 
 	<bean id="kenny" class="com.tieto.titan.spring.ioc.impl.Instrumentalist">
 		<property name="song" value="My heart will go on"></property>
@@ -88,5 +99,19 @@
 		<property name="song" value="#{selector.selectSong()?.toUpperCase()}"></property>
 		<property name="instrument" value="#{kenny.instrument}"></property>
 	</bean>
+	
+	<bean id="john" class="com.tieto.titan.spring.ioc.impl.Instrumentalist" scope="prototype" >
+		<!--
+		<property name="song" value="#{kenny.song != null ? kenny.song : selector.selectSong()}"></property>
+		equals
+		<property name="song" value="#{kenny.song ?: selector.selectSong()}"></property>
+		-->
+		<property name="song" value="#{kenny.song ?:selector.selectSong()}"></property>
+		<property name="instrument" value="#{selector.selectSong() eq 'Tears' ? saxophone:piano}"></property>
+	</bean>
+	
+	<util:list id="cities">
+		<bean class="com.tieto.titan.spring.spel.City" p:name="Chicago" p:state="IL" p:population="28531114"/>
+	</util:list>
 	
 </beans>

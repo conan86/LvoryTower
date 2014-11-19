@@ -77,5 +77,17 @@ public class TestSpel {
 		SpelBean3 spelBean3 = (SpelBean3) ctx.getBean("spelBean3");
 		printAllParametersValue(spelBean3);
 	}
+	
+	@Test
+	public void testConditionExpression() {
+		Performer john = (Performer) ctx.getBean("john");
+		john.perform();
+	}
+	
+	@Test
+	public void testRegularExpression() {
+		SpelBean4 spelBean4 = (SpelBean4) ctx.getBean("spelBean4");
+		printAllParametersValue(spelBean4);
+	}
 
 }

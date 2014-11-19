@@ -12,6 +12,7 @@ public class SpelBean3 {
 	private boolean hasCapacity;
 	private boolean largeCircle;
 	private boolean outOfStock;
+	private String emailAddress;
 	
 	public double getMultiplier() {
 		return multiplier;
@@ -137,6 +138,18 @@ public class SpelBean3 {
 
 	public void setOutOfStock(boolean outOfStock) {
 		this.outOfStock = outOfStock;
+	}
+
+
+
+	public String getEmailAddress() {
+		return emailAddress;
+	}
+
+
+
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
 	}
 
 	
