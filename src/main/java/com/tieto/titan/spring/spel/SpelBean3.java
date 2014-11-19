@@ -11,7 +11,7 @@ public class SpelBean3 {
 	private boolean equal;
 	private boolean hasCapacity;
 	private boolean largeCircle;
-	
+	private boolean outOfStock;
 	
 	public double getMultiplier() {
 		return multiplier;
@@ -125,6 +125,18 @@ public class SpelBean3 {
 
 	public void setLargeCircle(boolean largeCircle) {
 		this.largeCircle = largeCircle;
+	}
+
+
+
+	public boolean isOutOfStock() {
+		return outOfStock;
+	}
+
+
+
+	public void setOutOfStock(boolean outOfStock) {
+		this.outOfStock = outOfStock;
 	}
 
 	

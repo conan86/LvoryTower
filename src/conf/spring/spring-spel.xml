@@ -35,11 +35,21 @@
 		     >=    ge
 		-->
 		<property name="hasCapacity" value="#{counter.total le 100000}"/>
+		<!-- 
+		<property name="outOfStock" value="#{!shape.available}"></property>
+		 -->
+		<property name="outOfStock" value="#{not shape.available}"></property>
 		
 		<!--
 			and, or , not , !, 
 		 -->
 		<property name="largeCircle" value="#{shape.kind eq 'circle' and shape.perimeter gt 1e4}" />
+	</bean>
+	
+	<bean id="shape" class="com.tieto.titan.spring.spel.Shape">
+		<property name="kind" value="#{'circle'}" />
+		<property name="perimeter" value="#{1e5}"/>
+		<property name="available"><value>true</value></property>
 	</bean>
 	
 	<bean id="counter" class="com.tieto.titan.spring.spel.Counter">
@@ -78,8 +88,5 @@
 		<property name="song" value="#{selector.selectSong()?.toUpperCase()}"></property>
 		<property name="instrument" value="#{kenny.instrument}"></property>
 	</bean>
-	<bean id="shape" class="com.tieto.titan.spring.spel.Shape">
-		<property name="kind" value="#{'circle'}" />
-		<property name="perimeter" value="#{1e5}"/>
-	</bean>
+	
 </beans>
