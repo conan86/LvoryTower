@@ -1,6 +1,9 @@
 package com.tieto.titan.spring.spel;
 
 import java.lang.reflect.Field;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
 import org.junit.After;
 import org.junit.Before;
@@ -90,4 +93,39 @@ public class TestSpel {
 		printAllParametersValue(spelBean4);
 	}
 
+	@Test
+	public void testUtil() {
+		SpelBean4 spelBean4 = (SpelBean4) ctx.getBean("spelBean4");
+		printAllParametersValue(spelBean4.getChosenCity());
+		printAllParametersValue(spelBean4.getChosenCity2());
+		printAllParametersValue(spelBean4.getChosenCity3());
+		System.out.println(spelBean4.getDbUsername());
+		System.out.println(spelBean4.getHomePath());
+		System.out.println(spelBean4.getUserDirPath());
+		
+		/*
+		 * List<?> cities = (List<?>) ctx.getBean("cities");
+		double d = Math.random()*cities.size();
+		System.out.println(d);
+		*/
+		/*
+		Map<?,?> citiesMap = (Map<?,?>) ctx.getBean("citiesMap");
+		System.out.println(citiesMap);
+		*/
+		/*
+		Properties dbSetting = (Properties) ctx.getBean("db_settings");
+		System.out.println(dbSetting.get("user.username"));
+		*/
+		/*
+		Properties systemProperties = (Properties) ctx.getBean("systemProperties");
+		for(Object key: systemProperties.keySet()) {
+			 System.out.print(key + " = ");
+			 System.out.println(systemProperties.getProperty( key.toString()));
+		}
+		*/
+		/*
+		Properties systemEnvironment = (Properties) ctx.getBean("systemEnvironment");
+		System.out.println(systemEnvironment);
+		*/
+	}
 }

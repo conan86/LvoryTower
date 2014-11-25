@@ -51,8 +51,64 @@
 		<property name="emailAddress"><value>joe@aol.com</value></property>
 	</bean>
 	<bean id="spelBean4" class="com.tieto.titan.spring.spel.SpelBean4">
-		<property name="validEmail" value="#{spelBean3.emailAddress matches '^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$'}"></property>
+		<property name="validEmail" value="#{spelBean3.emailAddress matches '^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$'}" />
+		<property name="chosenCity" value="#{cities[2]}" />
+		<property name="chosenCity2" value="#{cities[T(java.lang.Math).random()*cities.size()]}" />
+		<property name="chosenCity3" value="#{citiesMap['Nanyang']}" />
+		<property name="dbUsername" value="#{db_settings['user.username']}" />
+		<property name="homePath" value="#{systemProperties['user.home']}" />
+		<property name="userDirPath" value="#{systemProperties['user.dir']}"></property>
+		
 	</bean>
+	
+	<util:list id="cities">
+		<bean class="com.tieto.titan.spring.spel.City" p:name="Chicago" p:state="IL" p:population="28531114"/>
+		<bean class="com.tieto.titan.spring.spel.City" p:name="Atlanta" p:state="GA" p:population="537958"/>
+		<bean class="com.tieto.titan.spring.spel.City" p:name="Chengdu" p:state="SC" p:population="10235431"/>
+		<bean class="com.tieto.titan.spring.spel.City" p:name="Beijing" p:state="BJ" p:population="30456396"/>
+		<bean class="com.tieto.titan.spring.spel.City" p:name="Shanghai" p:state="SH" p:population="30786593"/>
+		<bean class="com.tieto.titan.spring.spel.City" p:name="Nanyang" p:state="HN" p:population="2078659"/>
+	</util:list>
+	<util:map id="citiesMap">
+		<entry>
+			<key>
+				<value>Chicago</value>
+			</key>
+			<bean class="com.tieto.titan.spring.spel.City" p:name="Chicago" p:state="IL" p:population="28531114"/>
+		</entry>
+		<entry>
+			<key>
+				<value>Atlanta</value>
+			</key>
+			<bean class="com.tieto.titan.spring.spel.City" p:name="Atlanta" p:state="GA" p:population="537958"/>
+		</entry>
+		<entry>
+			<key>
+				<value>Chengdu</value>
+			</key>
+			<bean class="com.tieto.titan.spring.spel.City" p:name="Chengdu" p:state="SC" p:population="10235431"/>
+		</entry>
+		<entry>
+			<key>
+				<value>Beijing</value>
+			</key>
+			<bean class="com.tieto.titan.spring.spel.City" p:name="Beijing" p:state="BJ" p:population="30456396"/>
+		</entry>
+		<entry>
+			<key>
+				<value>Shanghai</value>
+			</key>
+			<bean class="com.tieto.titan.spring.spel.City" p:name="Shanghai" p:state="SH" p:population="30786593"/>
+		</entry>
+		<entry>
+			<key>
+				<value>Nanyang</value>
+			</key>
+			<bean class="com.tieto.titan.spring.spel.City" p:name="Nanyang" p:state="HN" p:population="2078659"/>
+		</entry>
+	</util:map>
+	
+	<util:properties id="db_settings" location="spring/properties/db_setting.properties" />
 	
 	<bean id="shape" class="com.tieto.titan.spring.spel.Shape">
 		<property name="kind" value="#{'circle'}" />
@@ -109,9 +165,5 @@
 		<property name="song" value="#{kenny.song ?:selector.selectSong()}"></property>
 		<property name="instrument" value="#{selector.selectSong() eq 'Tears' ? saxophone:piano}"></property>
 	</bean>
-	
-	<util:list id="cities">
-		<bean class="com.tieto.titan.spring.spel.City" p:name="Chicago" p:state="IL" p:population="28531114"/>
-	</util:list>
 	
 </beans>
