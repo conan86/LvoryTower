@@ -1,5 +1,7 @@
 package com.tieto.titan.spring.spel;
 
+import java.util.List;
+
 public class SpelBean4 {
 
 	private boolean validEmail;
@@ -9,6 +11,10 @@ public class SpelBean4 {
 	private String dbUsername;
 	private String homePath;
 	private String userDirPath;
+	private char getStringByIndex;
+	private List< City> bigCities;
+	private City aBigCity;
+	private City aBigCity2;
 	
 	public boolean isValidEmail() {
 		return validEmail;
@@ -51,6 +57,30 @@ public class SpelBean4 {
 	}
 	public void setUserDirPath(String userDirPath) {
 		this.userDirPath = userDirPath;
+	}
+	public char getGetStringByIndex() {
+		return getStringByIndex;
+	}
+	public List< City> getBigCities() {
+		return bigCities;
+	}
+	public void setBigCities(List< City> bigCities) {
+		this.bigCities = bigCities;
+	}
+	public City getaBigCity() {
+		return aBigCity;
+	}
+	public void setaBigCity(City aBigCity) {
+		this.aBigCity = aBigCity;
+	}
+	public void setGetStringByIndex(char getStringByIndex) {
+		this.getStringByIndex = getStringByIndex;
+	}
+	public City getaBigCity2() {
+		return aBigCity2;
+	}
+	public void setaBigCity2(City aBigCity2) {
+		this.aBigCity2 = aBigCity2;
 	}
 	
 }

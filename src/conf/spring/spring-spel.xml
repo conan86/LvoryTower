@@ -58,6 +58,10 @@
 		<property name="dbUsername" value="#{db_settings['user.username']}" />
 		<property name="homePath" value="#{systemProperties['user.home']}" />
 		<property name="userDirPath" value="#{systemProperties['user.dir']}"></property>
+		<property name="getStringByIndex" value="#{'test'[2]}"></property>
+		<property name="bigCities" value="#{cities.?[population gt 10000000]}" />
+		<property name="aBigCity" value="#{ cities.^[population gt 10000000]}" />
+		<property name="aBigCity2" value="#{ cities.$[population gt 10000000]}" />
 		
 	</bean>
 	

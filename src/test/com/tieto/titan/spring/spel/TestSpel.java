@@ -102,6 +102,16 @@ public class TestSpel {
 		System.out.println(spelBean4.getDbUsername());
 		System.out.println(spelBean4.getHomePath());
 		System.out.println(spelBean4.getUserDirPath());
+		System.out.println(spelBean4.getGetStringByIndex());
+		System.out.println("--------------get big cities--------------");
+		List<City> cities = spelBean4.getBigCities();
+		for(City city : cities) {
+			//printAllParametersValue(city);
+			System.out.println(city.getName());
+		}
+		System.out.println("--------------get a  big city--------------");
+		System.out.println(spelBean4.getaBigCity().getName());
+		System.out.println(spelBean4.getaBigCity2().getName());
 		
 		/*
 		 * List<?> cities = (List<?>) ctx.getBean("cities");
