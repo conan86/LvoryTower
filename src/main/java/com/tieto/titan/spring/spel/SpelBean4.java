@@ -15,6 +15,9 @@ public class SpelBean4 {
 	private List< City> bigCities;
 	private City aBigCity;
 	private City aBigCity2;
+	private String[] cityNames;
+	private String[] cityAndStatesNames;
+	private String[]  bigCityNamesAndStates;
 	
 	public boolean isValidEmail() {
 		return validEmail;
@@ -81,6 +84,24 @@ public class SpelBean4 {
 	}
 	public void setaBigCity2(City aBigCity2) {
 		this.aBigCity2 = aBigCity2;
+	}
+	public String[] getCityNames() {
+		return cityNames;
+	}
+	public void setCityNames(String[] cityNames) {
+		this.cityNames = cityNames;
+	}
+	public String[] getCityAndStatesNames() {
+		return cityAndStatesNames;
+	}
+	public void setCityAndStatesNames(String[] cityAndStatesNames) {
+		this.cityAndStatesNames = cityAndStatesNames;
+	}
+	public String[] getBigCityNamesAndStates() {
+		return bigCityNamesAndStates;
+	}
+	public void setBigCityNamesAndStates(String[] bigCityNamesAndStates) {
+		this.bigCityNamesAndStates = bigCityNamesAndStates;
 	}
 	
 }

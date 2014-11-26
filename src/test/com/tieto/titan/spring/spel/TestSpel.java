@@ -106,13 +106,27 @@ public class TestSpel {
 		System.out.println("--------------get big cities--------------");
 		List<City> cities = spelBean4.getBigCities();
 		for(City city : cities) {
-			//printAllParametersValue(city);
-			System.out.println(city.getName());
+			printAllParametersValue(city);
+			//System.out.println(city.getName());
 		}
 		System.out.println("--------------get a  big city--------------");
-		System.out.println(spelBean4.getaBigCity().getName());
-		System.out.println(spelBean4.getaBigCity2().getName());
+		printAllParametersValue(spelBean4.getaBigCity());
+		printAllParametersValue(spelBean4.getaBigCity2());
+
+		System.out.println("-----------------get all cities name-------------------------------");
+		for(String name: spelBean4.getCityNames()) {
+			System.out.println(name);
+		}
 		
+		System.out.println("-----------------get all cities and states name-------------------------------");
+		for(String name: spelBean4.getCityAndStatesNames()) {
+			System.out.println(name);
+		}
+		
+		System.out.println("-----------------get all big cities and states name-------------------------------");
+		for(String name: spelBean4.getBigCityNamesAndStates()) {
+			System.out.println(name);
+		}
 		/*
 		 * List<?> cities = (List<?>) ctx.getBean("cities");
 		double d = Math.random()*cities.size();
