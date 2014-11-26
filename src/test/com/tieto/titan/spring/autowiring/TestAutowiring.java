@@ -49,6 +49,14 @@ public class TestAutowiring extends TestCase{
 		keny4.perform();
 	}
 	
+	@Test
+	public void testOverwriteThePropertyAfterAutowired() {
+		Performer keny5 = (Performer) ctx.getBean("keny5");
+		keny5.perform();
+	}
+	
+	
+	
 	@After
 	public void tearDown() {
 		ctx.registerShutdownHook();

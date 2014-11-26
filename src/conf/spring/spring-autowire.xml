@@ -40,6 +40,13 @@
 				<value>My heart will go on</value>
 			</property>
 		</bean>
+		<bean id="keny5" class="com.tieto.titan.spring.ioc.impl.Instrumentalist"
+			autowire="byType">
+			<property name="song">
+				<value>My heart will go on</value>
+			</property>
+			<property name="instrument" value="#{saxophone}" />
+		</bean>
 		<bean id="instrument" class="com.tieto.titan.spring.ioc.impl.Piano" >
 			<property name="number" value="10010" /> 
 		</bean>
