@@ -3,7 +3,6 @@ package com.tieto.titan.spring.spel;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 import org.junit.After;
 import org.junit.Before;
@@ -123,23 +122,25 @@ public class TestSpel {
 			System.out.println(name);
 		}
 		
+		Map<?,?> citiesMap = (Map<?,?>) ctx.getBean("citiesMap");
+		System.out.println(citiesMap);
+		
 		System.out.println("-----------------get all big cities and states name-------------------------------");
 		for(String name: spelBean4.getBigCityNamesAndStates()) {
 			System.out.println(name);
 		}
+		
 		/*
 		 * List<?> cities = (List<?>) ctx.getBean("cities");
 		double d = Math.random()*cities.size();
 		System.out.println(d);
 		*/
-		/*
-		Map<?,?> citiesMap = (Map<?,?>) ctx.getBean("citiesMap");
-		System.out.println(citiesMap);
-		*/
+		
 		/*
 		Properties dbSetting = (Properties) ctx.getBean("db_settings");
 		System.out.println(dbSetting.get("user.username"));
 		*/
+		
 		/*
 		Properties systemProperties = (Properties) ctx.getBean("systemProperties");
 		for(Object key: systemProperties.keySet()) {
@@ -147,9 +148,11 @@ public class TestSpel {
 			 System.out.println(systemProperties.getProperty( key.toString()));
 		}
 		*/
+		
 		/*
 		Properties systemEnvironment = (Properties) ctx.getBean("systemEnvironment");
 		System.out.println(systemEnvironment);
 		*/
+		
 	}
 }
