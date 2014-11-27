@@ -1,7 +1,10 @@
 package com.tieto.titan.spring.autowire.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -14,8 +17,11 @@ public class Instrumentalist implements Performer {
 	@Value(value = "#{songSelector.selectSong()}")
 	private String song;
 
-	@Autowired
-	@Qualifier("saxophone")
+	//@Autowired
+	//@Qualifier("saxophone")
+	
+	@Inject
+	@Named(value="saxophone")
 	private Instrument instrument;
 
 	public Instrumentalist() {
@@ -32,7 +38,6 @@ public class Instrumentalist implements Performer {
 
 	@Override
 	public void perform() {
-		// TODO Auto-generated method stub
 		System.out.println("Playing " + song + " : ");
 		instrument.play();
 	}

@@ -5,22 +5,11 @@ import java.util.List;
 import java.util.Random;
 
 import javax.annotation.Resource;
-import javax.inject.Inject;
-import javax.inject.Named;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SongSelector {
-
-	/*
-  	@Inject
-	@Named("songs")
-	*/
-	//@Autowired
-	//@Qualifier("songs")
+	
 	@Resource(name="songs")
 	private List<String> songs = new ArrayList<String>();
 
@@ -29,9 +18,7 @@ public class SongSelector {
 			Random random = new Random();
 			int index = 0;
 			index = random.nextInt(songs.size());
-			// System.out.println(index);
 			return songs.get(index);
-
 		}
 		return null;
 	}
