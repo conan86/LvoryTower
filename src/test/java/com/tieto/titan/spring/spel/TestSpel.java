@@ -40,10 +40,7 @@ public class TestSpel {
 		}
 	}
 
-	@After
-	public void tearDown() {
-		ctx.registerShutdownHook();
-	}
+	
 
 	
 
@@ -154,5 +151,10 @@ public class TestSpel {
 		System.out.println(systemEnvironment);
 		*/
 		
+	}
+	
+	@After
+	public void tearDown() {
+		ctx.registerShutdownHook();
 	}
 }
