@@ -3,6 +3,8 @@ package com.tieto.titan.spring.autowire.impl;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+
+
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -37,9 +39,17 @@ public class Instrumentalist implements Performer {
 	}
 
 	@Override
-	public void perform() {
-		System.out.println("Playing " + song + " : ");
-		instrument.play();
+	public void perform() throws Exception  {
+		try {
+			System.out.println("Playing " + song + " : ");
+			if(instrument == null) {
+				throw new NullPointerException();
+			}
+			instrument.play();
+		}catch(Exception e) {
+			throw e;
+		}
+		
 	}
 
 	public String getSong() {

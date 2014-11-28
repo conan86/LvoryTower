@@ -21,7 +21,7 @@ public class TestAutowiring extends TestCase{
 		}else {
 			System.out.println("ctx is not null");
 			return;
-		}
+		} 
 	}
 	
 	@Test

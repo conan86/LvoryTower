@@ -1,4 +1,4 @@
-package com.tieto.titan.spring.autowiring;
+package com.tieto.titan.spring.aop;
 
 import org.junit.After;
 import org.junit.Before;
@@ -8,14 +8,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.tieto.titan.spring.autowire.Performer;
 
-import junit.framework.TestCase;
-
-public class TestAnnotation extends TestCase{
+public class TestAop {
 	private static AbstractApplicationContext  ctx = null;
 	@Before
 	public void setUp()  throws Exception{
 		if(ctx == null) {
-			ctx = new ClassPathXmlApplicationContext("spring/spring-annotation.xml");
+			ctx = new ClassPathXmlApplicationContext("spring/spring-aop.xml");
 		}else {
 			System.out.println("ctx is not null");
 			return;
@@ -23,12 +21,22 @@ public class TestAnnotation extends TestCase{
 	}
 	
 	@Test
-	public void testAnnotation1() throws Exception {
-		Performer performer = (Performer) ctx.getBean("john");
-		performer.perform();
+	public void testAop() {
+		Performer kenny = (Performer) ctx.getBean("kenny");
+		try {
+				kenny.perform();
+				//Instrumentalist performer =(Instrumentalist)kenny;
+				//performer.setInstrument(null);
+				//performer.perform();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
+	
 	@After
 	public void tearDown() {
-		ctx.registerShutdownHook();
+		if(ctx != null) {
+			ctx.registerShutdownHook();
+		}
 	}
 }
