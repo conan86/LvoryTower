@@ -30,7 +30,7 @@
 		<value>Tonight I Celebrate My Love</value>
 		<value>I believe I can fly</value>
 	</util:list>
-	
+	<!--  
 	<aop:config>
 		<aop:aspect ref="audience">
 			<aop:before pointcut="execution(* com.tieto.titan.spring.autowire.Performer.perform(..))" method="takeSeats"/>
@@ -39,4 +39,17 @@
 			<aop:after-throwing pointcut="execution(* com.tieto.titan.spring.autowire.Performer.perform(..))" method="demandRefound"/>
 		</aop:aspect>
 	</aop:config>
+	-->
+	
+	<aop:config>
+		<aop:aspect ref="audience">
+			<aop:pointcut expression="execution(* com.tieto.titan.spring.autowire.Performer.perform(..))" id="performance"/>
+			<aop:before pointcut-ref="performance" method="takeSeats"/>
+			<aop:before pointcut-ref="performance" method="turnoffCellPhones"/>
+			<aop:after-returning pointcut-ref="performance" method="applaud"/>
+			<aop:after-throwing pointcut-ref="performance" method="demandRefound"/>
+		</aop:aspect>
+	</aop:config>
+	
+	
 </beans>

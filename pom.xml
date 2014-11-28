@@ -119,6 +119,13 @@
 			<version>${spring.version}</version>
 			<scope>compile</scope>
 		</dependency>
+		
+		<!-- sqlite jdbc -->
+		<dependency>
+			<groupId>org.xerial</groupId>
+			<artifactId>sqlite-jdbc</artifactId>
+			<version>3.8.7</version>
+		</dependency>
 
 		<!-- log -->
 		<dependency>
@@ -133,5 +140,7 @@
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
 		</dependency>
+		
+		
 	</dependencies>
 </project>
