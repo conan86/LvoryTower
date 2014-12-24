@@ -6,7 +6,7 @@
 	<artifactId>ConanSpringFrame</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>ConanSpringFrame Maven Webapp</name>
+	<name>ConanSpringFrame</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -15,6 +15,8 @@
 		<jdk-source-version>1.6</jdk-source-version>
 		<jdk-target-version>1.6</jdk-target-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<commons-dbcp-version>1.4</commons-dbcp-version>
+		<tomcat-plugin-version>2.2</tomcat-plugin-version>
 	</properties>
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
@@ -61,7 +63,7 @@
 					<warName>${project.artifactId}</warName>
 				</configuration>
 			</plugin>
-			<!-- test插件, 仅测试名称为Test*的类,使用支持分组测试的surefire-junit47 driver -->
+			<!-- test-surefire-junit47 driver -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -80,17 +82,23 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-			
+			<!-- tomcat plugin -->
+			<plugin>
+			  	<groupId>org.apache.tomcat.maven</groupId>
+			  	<artifactId>tomcat7-maven-plugin</artifactId>
+			  	<version>${tomcat-plugin-version}</version>
+			  	<configuration>
+			    	<path>/${project.artifactId}</path>
+			    	<port>8080</port>
+                    <uriEncoding>UTF-8</uriEncoding>
+                    <server>tomcat7</server>
+			  	</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
 	<dependencies>
 		<!-- javax -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.3</version>
-		</dependency>
 		<dependency>
 		    <groupId>javax.inject</groupId>
 		    <artifactId>javax.inject</artifactId>
@@ -119,14 +127,39 @@
 			<version>${spring.version}</version>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 		
-		<!-- sqlite jdbc -->
+		<!-- sqlite jdbc driver -->
+		<!--
 		<dependency>
 			<groupId>org.xerial</groupId>
 			<artifactId>sqlite-jdbc</artifactId>
 			<version>3.8.7</version>
 		</dependency>
-
+		-->
+		<!-- 数据库连接池 -->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>${commons-dbcp-version}</version>
+		</dependency>
+		
+		<!-- mysql jdbc driver -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+		</dependency>
+		
 		<!-- log -->
 		<dependency>
 			<groupId>log4j</groupId>
