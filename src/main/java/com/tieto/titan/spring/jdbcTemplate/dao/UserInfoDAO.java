@@ -8,6 +8,9 @@ import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.util.Assert;
 
+import com.tieto.titan.spring.jdbcTemplate.bean.UserInfo;
+import com.tieto.titan.spring.jdbcTemplate.bean.UserInfoRowMapper;
+
 public class UserInfoDAO{
 	private JdbcTemplate   jdbcTemplate;
 	
@@ -45,6 +48,11 @@ public class UserInfoDAO{
 		}, id));
 	}
 	
+	public UserInfo queryUserInfoById(int id) {
+		String sql = "SELECT id,username,password,age FROM user_info where id =?";
+		return (UserInfo) jdbcTemplate.queryForObject(sql, new Object[] {id},  new UserInfoRowMapper());
+	}
+	
 	public String queryUsernameById(int id) {
 		String sql = "SELECT username FROM user_info where id =?";
 		return jdbcTemplate.queryForObject(sql,new Object[] { id },String.class);
@@ -54,7 +62,5 @@ public class UserInfoDAO{
 		String sql ="select count(id) from user_info";
 		return jdbcTemplate.queryForObject(sql,Integer.class);
 	}
-	
-	
 	
 }

@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.tieto.titan.spring.jdbcTemplate.dao.UserInfo;
+import com.tieto.titan.spring.jdbcTemplate.bean.UserInfo;
 import com.tieto.titan.spring.jdbcTemplate.dao.UserInfoDAO;
 import com.tieto.titan.spring.jdbcTemplate.dao.UserInfoDAO2;
 
@@ -64,6 +64,13 @@ public class TestJdbcTemplate {
 	public void testGetCountOfRows() {
 		UserInfoDAO dao = (UserInfoDAO) ctx.getBean("userInfoDAO");
 		System.out.println(dao.getCountOfRows());
+	}
+	
+	@Test
+	public void testQueryUserInfoById() {
+		UserInfoDAO dao = (UserInfoDAO) ctx.getBean("userInfoDAO");
+		UserInfo userInfo = dao.queryUserInfoById(2);
+		System.out.println(userInfo.getUsername());
 	}
 	
 	@After

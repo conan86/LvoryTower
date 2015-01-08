@@ -2,6 +2,8 @@ package com.tieto.titan.spring.jdbcTemplate.dao;
 
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
+import com.tieto.titan.spring.jdbcTemplate.bean.UserInfo;
+
 public class UserInfoDAO2 extends JdbcDaoSupport {
 	
 	public void addUserInfo(UserInfo userInfo) {

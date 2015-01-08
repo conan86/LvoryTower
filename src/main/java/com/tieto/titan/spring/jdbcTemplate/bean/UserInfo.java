@@ -1,4 +1,4 @@
-package com.tieto.titan.spring.jdbcTemplate.dao;
+package com.tieto.titan.spring.jdbcTemplate.bean;
 
 public class UserInfo {
 	private int id;
