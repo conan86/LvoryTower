@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class DBUtils {
 	// JDBC driver name and database URL
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	static final String DB_URL = "jdbc:MySQL://localhost:3306/conan";
+	static final String DB_URL = "jdbc:MySQL://172.16.121.88:3306/conan";
 
 	// Database credentials
 	static final String USER = "conan";
@@ -69,8 +69,6 @@ public class DBUtils {
 				e.printStackTrace();
 			}
 		}
-		
-		
 	}
 
 	public void query(String sql,int userId) {
