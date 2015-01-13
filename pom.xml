@@ -89,6 +89,16 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>${tomcat-plugin-version}</version>
 				<configuration>
+					<additionalProjectnatures>
+                        <projectnature>org.eclipse.jdt.core.javanature</projectnature>
+                        <projectnature>org.eclipse.m2e.core.maven2Nature</projectnature>
+                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                    </additionalProjectnatures>
+                    <additionalBuildcommands>
+                        <buildcommand>org.eclipse.jdt.core.javabuilder</buildcommand>
+                        <buildcommand>org.eclipse.m2e.core.maven2Builder</buildcommand>
+                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+                    </additionalBuildcommands>
 					<path>/${project.artifactId}</path>
 					<port>8080</port>
 					<uriEncoding>${project.build.sourceEncoding}</uriEncoding>

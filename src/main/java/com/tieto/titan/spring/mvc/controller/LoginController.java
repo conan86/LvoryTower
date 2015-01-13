@@ -20,8 +20,11 @@ public class LoginController{
 	
 	@RequestMapping(value= "/login", method = RequestMethod.POST)
 	public String login(HttpServletRequest request, 
-	        @RequestParam(value="username", required=true) String username, 
-	        @RequestParam(value="password", required=true) String password,Map<String,Object> model) {
+	        //@RequestParam(value="username", required=true) String username, 
+			String username, 
+	        //@RequestParam(value="password", required=true) String password,
+			String password,
+	        Map<String,Object> model) {
 		model.put("message", "Welcome");
 		model.put("username", username);
 		//model.put("password", password);
