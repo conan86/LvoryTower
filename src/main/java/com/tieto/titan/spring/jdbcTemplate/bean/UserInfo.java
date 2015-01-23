@@ -5,6 +5,8 @@ public class UserInfo {
 	private String username;
 	private int age;
 	private String password;
+	private String photoPath;
+	
 	public int getId() {
 		return id;
 	}
@@ -28,5 +30,11 @@ public class UserInfo {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getPhotoPath() {
+		return photoPath;
+	}
+	public void setPhotoPath(String photoPath) {
+		this.photoPath = photoPath;
 	}
 }

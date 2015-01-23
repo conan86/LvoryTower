@@ -7,6 +7,7 @@
 <title>Login</title>
 </head>
 <body>
+<h1>${message}</h1>
 <h1>
 	Login
 </h1>
@@ -31,5 +32,8 @@
 		<input type="submit" value="Submit">
 	</div>
 </form>
+
+<font>If you don't have a user account, please register </font>
+<a href="register?new"> Register</a>
 </body>
 </html>
