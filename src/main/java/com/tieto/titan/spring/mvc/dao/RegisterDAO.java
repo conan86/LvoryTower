@@ -2,7 +2,6 @@ package com.tieto.titan.spring.mvc.dao;
 
 import java.sql.SQLException;
 
-import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.inject.Named;
 
