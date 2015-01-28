@@ -2,6 +2,10 @@ package com.tieto.titan.spring;
 
 import java.io.File;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Random;
 
 public class Test {
 
@@ -25,5 +29,10 @@ public class Test {
 		 
 		 String testStr = "123.234";
 		 System.out.println(testStr.split("\\.").length);
+		 
+		 Date date = new Date();
+		 SimpleDateFormat df = new SimpleDateFormat("yyyyMMddhhmmssS");
+		 Random random = new Random();
+		 System.out.println(df.format(date)+random.nextInt(10000));
 	}
 }

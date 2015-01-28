@@ -32,8 +32,9 @@ public class RegisterController {
 	@RequestMapping(method=RequestMethod.POST)
 	public String register(@Validated UserInfo userInfo, @RequestParam(value="photo",required=false) MultipartFile photo,BindingResult bindingResult,Model model) {
 		if(registerService.validateTheFileType(photo)) {
-			registerService.savePhoto(photo);
+			userInfo.setPhotoPath(registerService.savePhoto(photo));
 		}
+		registerService.saveUserInfo(userInfo);
 		model.addAttribute("message", "Register Successful, Please try to login.");
 		return "redirect:login";
 	}
