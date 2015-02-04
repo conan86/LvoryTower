@@ -3,7 +3,6 @@ package com.tieto.titan.spring;
 import java.io.File;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 

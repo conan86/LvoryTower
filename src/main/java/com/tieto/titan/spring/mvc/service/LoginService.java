@@ -1,9 +1,12 @@
 package com.tieto.titan.spring.mvc.service;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.tieto.titan.spring.jdbcTemplate.bean.UserInfo;
 import com.tieto.titan.spring.mvc.dao.LoginDAO;
 
 @Service("loginService")
@@ -18,5 +21,9 @@ public class LoginService {
 			return true;
 		}
 		return false;
+	}
+	
+	public List<UserInfo> getAllUserInfo() {
+		return loginDAO.getAllUserInfo();
 	}
 }

@@ -31,14 +31,13 @@ public class LoginController{
 	        //@RequestParam(value="password", required=true) String password,
 			String password,
 	        Map<String,Object> model) {
-		model.put("message", "Welcome");
-		model.put("username", username);
-		//model.put("password", password);
-		
 		if(loginService.verifyUser(username, password)) {
+			model.put("message", "Welcome");
+			model.put("username", username);
+			model.put("userList", loginService.getAllUserInfo());
 			return "home";
 		} else {
-			return "hello";
+			return "redirect:hello.do";
 		}
 	}
 }

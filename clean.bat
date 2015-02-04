@@ -3,5 +3,6 @@ if exist .classpath del /f .classpath
 if exist target\ rmdir /Q /S target
 if exist .settings\ rmdir /Q /S .settings
 if exist bin\ rmdir /Q /S bin
+if exist photos\ rmdir /Q /S photos\
 
 pause;

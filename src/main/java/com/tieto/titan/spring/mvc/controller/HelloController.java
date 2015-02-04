@@ -13,7 +13,7 @@ public class HelloController extends  AbstractController{
 	protected ModelAndView handleRequestInternal(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception {
 		ModelAndView mv = new ModelAndView("hello");
-		mv.addObject("msg","Hello World");
+		mv.addObject("msg","World");
 		mv.setViewName("hello");
 		return mv;
 	}
