@@ -39,6 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</th>
 			<td>
 				<sf:input path="age" size="3" id="age" maxlength="3"/>
+				<sf:errors path="age" cssClass="error" />
 			</td>
 		</tr>
 		<tr>

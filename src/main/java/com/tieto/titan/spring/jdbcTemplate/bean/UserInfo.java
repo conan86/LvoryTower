@@ -4,7 +4,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
-//import org.hibernate.validator.constraints.Range;
+import org.hibernate.validator.constraints.Range;
 
 public class UserInfo {
 	private int id;
@@ -18,7 +18,7 @@ public class UserInfo {
 	@Size(min=3, max=20, message="Username must be between 3 and 20 characters long")
 	private String password;
 	
-	//@Range(min = 1, max = 150,message="Age must more then 1 and lower then 150")
+	@Range(min = 1, max = 150,message="Age must more then 1 and lower then 150")
 	private int age;
 	
 	private String photoPath;

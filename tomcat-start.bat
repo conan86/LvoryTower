@@ -1,1 +1,1 @@
-mvn clean install -Dmaven.test.skip=true tomcat:run
+mvn clean install -Dmaven.test.skip=true tomcat7:run
