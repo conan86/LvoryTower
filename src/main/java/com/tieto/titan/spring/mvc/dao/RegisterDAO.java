@@ -13,7 +13,7 @@ import org.springframework.util.Assert;
 import com.tieto.titan.spring.jdbcTemplate.bean.UserInfo;
 
 @Repository("registerDAO")
-public class RegisterDAO {
+public class RegisterDAO  extends AbstractDAO{
 	
 	private JdbcTemplate   jdbcTemplate;
 	

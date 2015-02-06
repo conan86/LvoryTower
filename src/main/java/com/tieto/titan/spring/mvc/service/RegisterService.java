@@ -14,14 +14,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.tieto.titan.spring.jdbcTemplate.bean.UserInfo;
+import com.tieto.titan.spring.mvc.dao.AbstractDAO;
 import com.tieto.titan.spring.mvc.dao.RegisterDAO;
 
 @Service("registerService")
-public class RegisterService {
+public class RegisterService  extends AbstractService{
 	
 	@Inject
 	@Named("registerDAO")
-	private RegisterDAO dao;
+	private AbstractDAO dao;
 	
 	 public boolean validateTheFileType( MultipartFile photo) {
 		 String originalFileName = photo.getOriginalFilename();
@@ -34,12 +35,11 @@ public class RegisterService {
 	 }
 	 
 	 
-	 public String savePhoto(MultipartFile photo) {
+	 public String storePhoto(MultipartFile photo) {
 		 Date date = new Date();
 		 SimpleDateFormat df = new SimpleDateFormat("yyyyMMddhhmmssS");
 		 Random random = new Random();
 		 String fileName = df.format(date)+random.nextInt(10000)+".jpg";
-		 
 		 String filePath =System.getProperty("user.dir") +File.separator+ "photos"+File.separator+fileName;
 		 File file = new File(filePath);
 		 try {
@@ -51,7 +51,14 @@ public class RegisterService {
 	 }
 	 
 	 public void saveUserInfo(UserInfo userInfo) {
-		 dao.SaveUser(userInfo);
-	 } 
+		 ((RegisterDAO) dao).SaveUser(userInfo);
+	 }
+
+
+	@Override
+	public void setDAO(AbstractDAO dao) {
+		// TODO Auto-generated method stub
+		this.dao = dao;
+	} 
 	 
 }

@@ -7,16 +7,22 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.tieto.titan.spring.jdbcTemplate.bean.UserInfo;
+import com.tieto.titan.spring.mvc.dao.AbstractDAO;
 import com.tieto.titan.spring.mvc.dao.LoginDAO;
 
 @Service("loginService")
-public class LoginService {
+public class LoginService extends AbstractService {
 	
+	
+	private AbstractDAO dao ;
 	@Resource(name="loginDAO")
-	private LoginDAO loginDAO ;
+	@Override
+	public void setDAO(AbstractDAO dao) {
+		this.dao = dao;
+	}
 	
 	public boolean  verifyUser(String username, String password) {
-		int i =  loginDAO.verifyUser(username, password);
+		int i =  ((LoginDAO) dao).verifyUser(username, password);
 		if(i >0) {
 			return true;
 		}
@@ -24,6 +30,7 @@ public class LoginService {
 	}
 	
 	public List<UserInfo> getAllUserInfo() {
-		return loginDAO.getAllUserInfo();
+		return ((LoginDAO) dao).getAllUserInfo();
 	}
+	
 }

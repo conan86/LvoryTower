@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.tieto.titan.spring.jdbcTemplate.bean.UserInfo;
 
 @Repository("loginDAO")
-public class LoginDAO {
+public class LoginDAO extends AbstractDAO{
 private JdbcTemplate   jdbcTemplate;
 	
 	@Inject

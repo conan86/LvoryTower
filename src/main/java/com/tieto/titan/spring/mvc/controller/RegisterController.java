@@ -44,7 +44,7 @@ public class RegisterController {
 			return "register";
 		}
 		if (registerService.validateTheFileType(photo)) {
-			userInfo.setPhotoPath(registerService.savePhoto(photo));
+			userInfo.setPhotoPath(registerService.storePhoto(photo));
 		}
 		registerService.saveUserInfo(userInfo);	
 		model.addAttribute("message",
