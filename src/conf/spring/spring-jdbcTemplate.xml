@@ -19,6 +19,7 @@
         <property name="url" value="${jdbc.url}"/>
         <property name="username" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
+        <property name="maxWait" value="${jdbc.maxWait}"/>
         <!-- 连接池启动时创建的连接数量 -->
         <property name="initialSize" value="${jdbc.initialSize}" />
         <!-- 同一时间可以从连接池中分配的最多连接数  -->
