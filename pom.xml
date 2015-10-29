@@ -19,6 +19,7 @@
 		<tomcat-plugin-version>2.2</tomcat-plugin-version>
 		<servlet-api-version>3.1.0</servlet-api-version>
 		<spring-security-version>4.0.2.RELEASE</spring-security-version>
+		<jackson-version>2.6.3</jackson-version>
 	</properties>
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
@@ -194,6 +195,23 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>5.1.3.Final</version>
 		</dependency>
+		<!-- jaskson -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson-version}</version>
+		</dependency>
+		
 		<!-- sqlite jdbc driver -->
 		<!-- 
 		<dependency> 
