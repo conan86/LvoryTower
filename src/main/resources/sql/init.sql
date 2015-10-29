@@ -1,12 +1,30 @@
-CREATE TABLE `conan`.`user_info` (
-  `id` INT NOT NULL,
-  `username` VARCHAR(45) NULL,
-  `age` INT NULL,
-  `password` VARCHAR(45) NULL,
-  PRIMARY KEY (`id`));
+CREATE SCHEMA `lvory` DEFAULT CHARACTER SET utf8 ;
+CREATE  TABLE `lvory`.`users` (
 
-ALTER TABLE `conan`.`user_info` CHANGE COLUMN `id` `id` INT(11) NOT NULL AUTO_INCREMENT ;
-INSERT INTO `conan`.`user_info` (`id`, `username`, `age`, `password`) VALUES ('1', 'conan', '28', 'conan');
-INSERT INTO `conan`.`user_info` (`id`, `username`, `age`, `password`) VALUES ('2', 'admin', '100', 'admin');
-ALTER TABLE `conan`.`user_info` ADD COLUMN `photoPath` VARCHAR(45) NULL AFTER `password`;
-ALTER TABLE `conan`.`user_info` CHANGE COLUMN `password` `password` VARCHAR(45) NULL DEFAULT NULL AFTER `username`;
+  `userId` INT NOT NULL COMMENT 'id, primary key' ,
+
+  `username` VARCHAR(45) NULL COMMENT 'username, used for login.' ,
+
+  `password` VARCHAR(45) NULL COMMENT 'password used for login.' ,
+
+  `birthday` INT(8) NULL COMMENT 'users birthday data format is \'yyyyMMdd\'' ,
+
+  `idNumber` VARCHAR(45) NULL COMMENT 'id card number' ,
+
+  `idCardPhotoPath` VARCHAR(45) NULL COMMENT 'id card photo path' ,
+
+  `realName` VARCHAR(40) NULL COMMENT 'real name' ,
+
+  `schoolId` INT NULL COMMENT 'College id ' ,
+
+  `departmentId` INT NULL COMMENT 'department id' ,
+
+  `photoPath` VARCHAR(45) NULL COMMENT 'personal photo path' ,
+
+  `registerDate` DATETIME NULL COMMENT 'register date' ,
+
+  PRIMARY KEY (`userId`) ,
+
+  UNIQUE INDEX `idNumber_UNIQUE` (`idNumber` ASC) ,
+
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC) );

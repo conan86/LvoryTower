@@ -10,14 +10,15 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<spring.version>4.1.1.RELEASE</spring.version>
+		<spring-version>4.1.1.RELEASE</spring-version>
 		<jdk-compiler-version>1.6</jdk-compiler-version>
 		<jdk-source-version>1.6</jdk-source-version>
 		<jdk-target-version>1.6</jdk-target-version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project-build-sourceEncoding>UTF-8</project-build-sourceEncoding>
 		<commons-dbcp-version>1.4</commons-dbcp-version>
 		<tomcat-plugin-version>2.2</tomcat-plugin-version>
 		<servlet-api-version>3.1.0</servlet-api-version>
+		<spring-security-version>4.0.2.RELEASE</spring-security-version>
 	</properties>
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
@@ -40,7 +41,7 @@
 					<compilerVersion>${jdk-compiler-version}</compilerVersion>
 					<source>${jdk-source-version}</source>
 					<target>${jdk-target-version}</target>
-					<encoding>${project.build.sourceEncoding}</encoding>
+					<encoding>${project-build-sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -101,7 +102,7 @@
                     </additionalBuildcommands>
 					<path>/${project.artifactId}</path>
 					<port>8080</port>
-					<uriEncoding>${project.build.sourceEncoding}</uriEncoding>
+					<uriEncoding>${project-build-sourceEncoding}</uriEncoding>
 					<server>tomcat7</server>
 				</configuration>
 			</plugin>
@@ -137,34 +138,50 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
+			<version>${spring-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
-			<version>${spring.version}</version>
+			<version>${spring-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
+			<version>${spring-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>
-			<version>${spring.version}</version>
+			<version>${spring-version}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.version}</version>
+			<version>${spring-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>${spring.version}</version>
+			<version>${spring-version}</version>
 		</dependency>
+		
+		<dependency>  
+            <groupId>org.springframework.security</groupId>  
+            <artifactId>spring-security-core</artifactId>  
+            <version>${spring-security-version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework.security</groupId>  
+            <artifactId>spring-security-web</artifactId>  
+            <version>${spring-security-version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework.security</groupId>  
+            <artifactId>spring-security-config</artifactId>  
+            <version>${spring-security-version}</version>  
+        </dependency>  
 		
 		<!-- Validation -->
 		<dependency>
@@ -224,7 +241,11 @@
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
 		</dependency>
-		
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.10.19</version>
+		</dependency>
 
 	</dependencies>
 </project>
