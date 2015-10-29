@@ -13,7 +13,9 @@
 		http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
+        
     <context:property-placeholder location="classpath*:spring/properties/jdbc.properties"/>
+    
    	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="${jdbc.driverClassName}"/>
         <property name="url" value="${jdbc.url}"/>
@@ -52,13 +54,6 @@
     	<constructor-arg ref="dataSource" />
     </bean>
     
-    <bean id="userInfoDAO" class="com.tieto.titan.spring.jdbcTemplate.dao.UserInfoDAO">
-    	<property name="jdbcTemplate" ref="jdbcTemplate" />
-    	<property name="transactionManager" ref="transactionManager" />
-    </bean>
-    
-    <bean id="userInfoDAO2" class="com.tieto.titan.spring.jdbcTemplate.dao.UserInfoDAO2">
-    	<property name="dataSource" ref="dataSource" />
-    </bean>
+    <!-- DAOS -->
     
 </beans>

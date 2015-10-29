@@ -15,7 +15,7 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 	
 	<!-- Spring mvc -->
-	<context:component-scan base-package="com.tieto.titan.spring.mvc"></context:component-scan>
+	<context:component-scan base-package="com.tusk.lvoryTower"></context:component-scan>
 	
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<!-- static resources images, js,css.. -->
@@ -38,6 +38,6 @@
 	</bean>
 
 	<!-- Controllers -->
-	<bean name="/hello.do" class="com.tieto.titan.spring.mvc.controller.HelloController" />
+	
 
 </beans>

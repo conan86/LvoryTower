@@ -6,7 +6,7 @@
 	<artifactId>LvoryTower</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>ConanSpringFrame</name>
+	<name>LvoryTower</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -30,7 +30,7 @@
 				<directory>src/main/resources</directory>
 			</resource>
 		</resources>
-		<finalName>ConanSpringFrame</finalName>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
