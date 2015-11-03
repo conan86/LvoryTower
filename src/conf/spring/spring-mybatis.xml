@@ -22,9 +22,9 @@
         <property name="username" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
         <property name="maxWait" value="${jdbc.maxWait}"/>
-        <!-- 连接池启动时创建的连接数量 -->
+        <!-- initial connection number -->
         <property name="initialSize" value="${jdbc.initialSize}" />
-        <!-- 同一时间可以从连接池中分配的最多连接数  -->
+        <!-- max support connection number  -->
         <property name="maxActive" value="${jdbc.maxActive}" />
     </bean>
     
@@ -42,18 +42,17 @@
 	<aop:config>
 		<aop:advisor pointcut="execution(* *..AbstractService.*(..))" advice-ref="txAdvice"/>
 	</aop:config>
-    
-    <bean id="springDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-    	<property name="driverClassName" value="${jdbc.driverClassName}"/>
-    	<property name="url" value="${jdbc.url}"/>
-        <property name="username" value="${jdbc.username}"/>
-        <property name="password" value="${jdbc.password}"/>
-    </bean>
-    
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-    	<constructor-arg ref="dataSource" />
-    </bean>
-    
+	
+	<!-- Mybatis -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations" value="classpath*:mappers/**/*.xml" />
+	</bean>
     <!-- DAOS -->
+    <bean id="userDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.tusk.lvoryTower.dao.UserDAO"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+    
     
 </beans>

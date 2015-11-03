@@ -15,7 +15,7 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 	
 	<!-- Spring mvc -->
-	<context:component-scan base-package="com.tusk.lvoryTower"></context:component-scan>
+	
 	
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<!-- static resources images, js,css.. -->
@@ -39,5 +39,18 @@
 
 	<!-- Controllers -->
 	
-
+	<!-- Services -->
+	
+	<bean id="userService" class="com.tusk.lvoryTower.services.impl.UserServiceImpl">
+		<property name="dao" ref="userDao" />
+	</bean>
+ 	
+ 	<!-- 
+ 	<bean id="springBeanFactoryUtils" class="com.tusk.lvoryTower.utils.SpringBeanFactoryUtils">
+ 		<property name="applicationContext" ref="appContext" />
+ 	</bean>
+ 	<bean id="appContext" class="org.springframework.context.support.ClassPathXmlApplicationContext">
+ 		<constructor-arg value="spring.xml" />
+ 	</bean>
+ 	 -->
 </beans>

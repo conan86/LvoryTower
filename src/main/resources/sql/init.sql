@@ -1,5 +1,5 @@
 CREATE SCHEMA `lvory` DEFAULT CHARACTER SET utf8 ;
-CREATE  TABLE `lvory`.`users` (
+CREATE  TABLE `lvory`.`user` (
 
   `userId` INT NOT NULL COMMENT 'id, primary key' ,
 
