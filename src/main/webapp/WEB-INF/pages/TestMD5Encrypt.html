@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test MD5 Encrypt</title>
+<script type="text/javascript" src="../resources/js/jquery.js"></script>
+<script type="text/javascript" src="../resources/js/jquery.md5.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#btn").click(function() {
+			txt = $("#code").val();
+			result = $.md5(txt);
+			$("#result").text(result);
+		})
+	});
+</script>
+</head>
+<body>
+	<div id="box">
+		<input id="code" name="code" type="text" /> 
+		<input type="button" name="btn" id="btn" value="md5" /> <br /> 
+		<span id="result"></span>
+	</div>
+</body>
+</html>

@@ -9,6 +9,12 @@
 		<welcome-file>/WEB-INF/pages/login.jsp</welcome-file>
 	</welcome-file-list>
     -->
+    <!-- set seesion time out -->
+	<session-config>
+		<session-timeout>15</session-timeout>
+	</session-config>
+	
+	<!-- set spring configure file path -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath*:spring.xml</param-value>
@@ -16,6 +22,7 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	
 	<!-- Spring mvc -->
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>

@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tusk.lvoryTower.dao.UserDAO">
-<select id="countUser" resultType="int">
-        select count(userId) userCount from user;
-</select>
+	<select id="countUser" resultType="int">
+		select count(userId) userCount from user;
+	</select>
+	<select id="getUserById" parameterType="int" resultType="com.tusk.lvoryTower.module.User">
+		select
+		userId,
+		username,
+		password,
+		birthday,
+		idNumber,
+		idCardPhotoPath,
+		realName,
+		shoolId,
+		departmentId,
+		photoPath,
+		registerDate,
+		from User
+		where id = #{userId}
+	</select>
 </mapper>

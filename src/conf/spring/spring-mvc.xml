@@ -13,13 +13,13 @@
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
-	
 	<!-- Spring mvc -->
 	
 	
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<!-- static resources images, js,css.. -->
 	<mvc:resources location="/WEB-INF/resources/" mapping="/resources/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/pages/" mapping="/pages/*.html"></mvc:resources>
 	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass">
