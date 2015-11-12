@@ -5,6 +5,7 @@
 <title>Test MD5 Encrypt</title>
 <script type="text/javascript" src="../resources/js/jquery.js"></script>
 <script type="text/javascript" src="../resources/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../resources/js/sha1.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$("#btn").click(function() {
@@ -12,14 +13,25 @@
 			result = $.md5(txt);
 			$("#result").text(result);
 		})
+		$("#btn_sha").click(function() {
+			txt = $("#code_sha").val();
+			result = hex_sha1(txt);
+			$("#result_sha").text(result);
+		})
+		
 	});
 </script>
 </head>
 <body>
-	<div id="box">
+	<div id="md5_box">
 		<input id="code" name="code" type="text" /> 
 		<input type="button" name="btn" id="btn" value="md5" /> <br /> 
 		<span id="result"></span>
+	</div>
+	<div id="sha1_box">
+		<input id="code_sha" name="code_sha" type="text" /> 
+		<input type="button" name="btn_sha" id="btn_sha" value="sha1" /> <br /> 
+		<span id="result_sha"></span>
 	</div>
 </body>
 </html>
