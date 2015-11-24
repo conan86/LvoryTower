@@ -44,15 +44,15 @@ public class UserServiceImplTest extends TestCase {
 		userService = mock(UserService.class);
 		User user = new User();
 		user.setUserId(1);
-		user.setUsername("Conan");
+		user.setUsername("conan");
 		when(userService.getUserById(1)).thenReturn(user);
 	}
 	@Test
 	public void testGetUserById() {
-		//UserService userService= (UserService) ctx.getBean("userService");
-		setUpGetUserById();
+		UserService userService= (UserService) ctx.getBean("userService");
+//		setUpGetUserById();
 		User user = userService.getUserById(1);
-		Assert.assertEquals("Conan", user.getUsername());
+		Assert.assertEquals("conan", user.getUsername());
 	}
 
 	@After

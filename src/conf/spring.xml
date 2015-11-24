@@ -10,8 +10,6 @@
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/security  
 		http://www.springframework.org/schema/security/spring-security.xsd">
-		
-	<context:component-scan base-package="com.tusk.lvoryTower"></context:component-scan>
     <import resource="spring/spring-mybatis.xml"/>
     <import resource="spring/spring-mvc.xml"/>
     <import resource="spring/spring-security.xml"/>

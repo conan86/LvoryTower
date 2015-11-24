@@ -2,8 +2,10 @@ package com.tusk.lvoryTower.module;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class User {
-	private int userId;
+	private long userId;
 	private String username;
 	private String password;
 	private int birthday;
@@ -15,11 +17,11 @@ public class User {
 	private String photoPath;
 	private Date registerDate;
 
-	public int getUserId() {
+	public long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
 
@@ -87,6 +89,7 @@ public class User {
 		this.photoPath = photoPath;
 	}
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	public Date getRegisterDate() {
 		return registerDate;
 	}

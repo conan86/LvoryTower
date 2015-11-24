@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User getUserById(int userId) {
+	public User getUserById(long userId) {
 		User user = null;
 		user = dao.getUserById(userId);
 		return user;

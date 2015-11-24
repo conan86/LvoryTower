@@ -4,5 +4,5 @@ import com.tusk.lvoryTower.module.User;
 
 public interface UserDAO {
 	public int countUser();
-	public User getUserById(int userId);
+	public User getUserById(long userId);
 }

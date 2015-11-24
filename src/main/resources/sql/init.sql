@@ -28,3 +28,5 @@ CREATE  TABLE `lvory`.`user` (
   UNIQUE INDEX `idNumber_UNIQUE` (`idNumber` ASC) ,
 
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) );
+  
+  INSERT INTO `user` VALUES ('1', 'conan', 'conan', '19860930', '543454198908249980', '/photos', '孙晓楠', '1', '2', '/photos', '2015-11-24 23:43:59');
