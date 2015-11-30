@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.annotation.Resource;
 
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,11 +32,12 @@ public class TestController {
 	}
 	
 	@RequestMapping("getUserInfo2")
-	public User getUserInfo2(@RequestBody String body) throws JsonParseException, JsonMappingException, IOException {
+	public User getUserInfo2(@RequestHeader("uuid") String uuid,@RequestBody String body) throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();
 		User user = null;
 		user = mapper.readValue(body,  User.class);
 		user = userService.getUserById(user.getUserId());
+		user.setIdCardPhotoPath(uuid);
         return user;
 	}
 
