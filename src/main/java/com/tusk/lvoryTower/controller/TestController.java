@@ -23,7 +23,7 @@ public class TestController {
 	@Resource
 	private UserService userService;
 
-	@RequestMapping(value = "/getUserInfo", method = RequestMethod.POST)
+	@RequestMapping("getUserInfo")
 	public User getUserInfo(@RequestParam(value = "userId") String userId) throws JsonProcessingException {
 		long id = Long.parseLong(userId);
 		User user = userService.getUserById(id);

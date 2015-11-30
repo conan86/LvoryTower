@@ -102,7 +102,10 @@
                         <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
                     </additionalBuildcommands>
 					<path>/${project.artifactId}</path>
-					<port>8080</port>
+					<httpsPort>8443</httpsPort>
+					<keystoreFile>../classes/keystore/lvoryTowerKey</keystoreFile>
+					<keystorePass>sxn_125001930</keystorePass>
+					<!-- <port>8080</port> -->
 					<uriEncoding>${project-build-sourceEncoding}</uriEncoding>
 					<server>tomcat7</server>
 				</configuration>
@@ -280,5 +283,7 @@
 			<artifactId>core</artifactId>
 			<version>3.2.1</version>
 		</dependency>
+		
+		
 	</dependencies>
 </project>
