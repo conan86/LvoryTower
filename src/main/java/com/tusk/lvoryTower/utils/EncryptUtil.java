@@ -93,13 +93,13 @@ public class EncryptUtil {
 
 	public static void main(String[] args) throws Exception {
 		String originalPassword = "test";
-		String passwordEncryotByMD5 = encryptByMD5(originalPassword);
-		System.out.println(passwordEncryotByMD5);
-		System.out.println(passwordEncryotByMD5.length());
-		String s1 = EncryptUtil.encryptPassword(passwordEncryotByMD5);
+		String passwordEncryptByMD5 = encryptByMD5(originalPassword);
+		System.out.println(originalPassword + " After MD5 encrypt" + passwordEncryptByMD5);
+		System.out.println(passwordEncryptByMD5.length());
+		String s1 = EncryptUtil.encryptPassword(passwordEncryptByMD5);
 		System.out.println(s1);
 		System.out.println(s1.length());
-		System.out.println(passwordMatch(passwordEncryotByMD5, s1));
+		System.out.println(passwordMatch(passwordEncryptByMD5, s1));
 
 		String content = "Conan Sun";
 		String password = "sxn_124345";
