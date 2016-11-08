@@ -21,8 +21,8 @@ public class EncryptUtil {
 		return result;
 	}
 
-	public static boolean passwordMatch(String rawPassword, String originalPassword) {
-		return encoder.matches(rawPassword, originalPassword);
+	public static boolean passwordMatch(String rawPassword, String encodedPassword) {
+		return encoder.matches(rawPassword, encodedPassword);
 	}
 
 	public static String encryptByMD5(String clearKey) throws NoSuchAlgorithmException {
@@ -92,24 +92,23 @@ public class EncryptUtil {
 	}
 
 	public static void main(String[] args) throws Exception {
-		String originalPassword = "test";
+		String originalPassword = "testar1rasf1341234123415";
 		String passwordEncryptByMD5 = encryptByMD5(originalPassword);
-		System.out.println(originalPassword + " After MD5 encrypt" + passwordEncryptByMD5);
-		System.out.println(passwordEncryptByMD5.length());
-		String s1 = EncryptUtil.encryptPassword(passwordEncryptByMD5);
-		System.out.println(s1);
-		System.out.println(s1.length());
-		System.out.println(passwordMatch(passwordEncryptByMD5, s1));
+		System.out.println("Original password:" + originalPassword + "\nAfter MD5 encrypt: \n" + passwordEncryptByMD5);
+		
+		String encodedPassword = EncryptUtil.encryptPassword(originalPassword);
+		System.out.println("Encoded password : " + encodedPassword);
+		System.out.println(passwordMatch(originalPassword, encodedPassword));
 
-		String content = "Conan Sun";
-		String password = "sxn_124345";
-		System.out.println("加密前：" + content);
+		String content = "Conan Sun Xiaonan Sun 孙晓楠";
+		String password = "Sxn_125001930";
+		System.out.println("Before encrypt ：" + content);
 		byte[] encryptResult = encryptAES128(content.getBytes("utf-8"), password);
 		String encryptResultStr = parseByte2HexStr(encryptResult);
-		System.out.println("加密后：" + encryptResultStr);
+		System.out.println("After encrypt ：" + encryptResultStr);
 		// 解密
 		byte[] decryptFrom = parseHexStr2Byte(encryptResultStr);
 		byte[] decryptResult = decryptAES128(decryptFrom, password);
-		System.out.println("解密后：" + new String(decryptResult));
+		System.out.println("decrypt：" + new String(decryptResult));
 	}
 }
