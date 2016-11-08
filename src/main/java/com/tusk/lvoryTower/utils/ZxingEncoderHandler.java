@@ -18,6 +18,7 @@ public class ZxingEncoderHandler {
 	 * @param imgPath
 	 */
 	public void encode(String contents, int width, int height, String imgPath) {
+		@SuppressWarnings("rawtypes")
 		Hashtable<EncodeHintType, Comparable> hints = new Hashtable<EncodeHintType, Comparable>();
 		hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
 		hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
